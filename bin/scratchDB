@@ -1,0 +1,14 @@
+#!/bin/bash
+if [ "$1" = "start" ] 
+	then
+	echo "starting ScratchPad database..."
+	nohup mongod --dbpath ~/Developer/Projects/ScratchPad/db/ > ~/Developer/Projects/ScratchPad/logs/mongo.log 2>&1 &
+elif [ "$1" = "stop" ] 
+	then
+	echo "stopping ScratchPad database"
+	pgrep mongod | xargs kill
+else 
+	echo "unknown option $1"
+fi
+
+exit 0
