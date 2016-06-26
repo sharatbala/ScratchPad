@@ -1,0 +1,16 @@
+<div class="sp-cal-container">
+	<div class="sp-cal-row">
+		<div class="sp-cal-control">
+			<!-- <span ng-click="lastYear()" class="sp-cal-button button secondary fa fa-angle-double-left"></span> -->
+			<span ng-click="lastMonth()" class="sp-cal-button button secondary fa fa-angle-left last-month"></span>
+			<span class="sp-cal-button button sp-cal-mon">{{spCal.month}}</span>
+			<span class="sp-cal-button button sp-cal-year">{{spCal.year}}</span>
+			<span ng-click="nextMonth()" class="sp-cal-button button secondary fa fa-angle-right next-month"></span>
+			<!--<span ng-click="nextYear()" class="sp-cal-button button secondary fa fa-angle-double-right next-year"></span> -->
+		</div>
+		<span ng-repeat="h in headers" class="sp-cal-el header">{{h}}</span><!--
+		--><span ng-repeat="p in spCal.prev" class="sp-cal-el prev">{{p}}</span><!--
+		--><span ng-repeat="c in spCal.curr" class="sp-cal-el" ng-class="{button: c==spCal.today}">{{c}}</span><!--
+		--><span ng-repeat="n in spCal.next" class="sp-cal-el next">{{n}}</span>
+	</div>
+</div>

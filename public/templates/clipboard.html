@@ -1,0 +1,24 @@
+<sp-header page-title="Clipboard"></sp-header>
+<div class="row">
+	<div ng-show="!clip.expiry" class="callout primary medium">
+	Anything you type below will be saved automatically. Note that clipboards are really temporary, 
+	and will be auto-deleted after a few hours. To keep a permenant record, start a <a href="#/new-note">note</a> instead.
+	</div>
+</div>
+<div class="row">
+	<div class="large-12 columns" role="content">
+
+		<form name="clipForm">
+			<textarea rows="20" ng-model="clip.text"></textarea>
+		</form>
+		<div class="expanded row align-justify">
+			<div class="help-block small-4 columns">
+				<span ng-show="saved" class="callout success small fi-save">&nbsp; Saved</span>
+			</div>
+			<div ng-show="clip.expiry" class="help-block small-4 columns text-right">
+				<span class="callout warning small">Expires: {{clip.expiry | date:'yyyy-MM-dd hh:mm a'}}</span>
+			</div>
+		</div>
+	</div>
+</div>
+				<sp-date-picker></sp-date-picker>

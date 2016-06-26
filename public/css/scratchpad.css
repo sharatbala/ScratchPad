@@ -1,0 +1,73 @@
+.row {
+	margin: 3px;
+}
+
+.no-wrap {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 0;
+}
+.control {
+	cursor: pointer;
+}
+.error-field {
+	background-color: #f8baba;
+}
+.help-block {
+	font-size: 11pt;
+	margin-top: -10px;
+}
+.help-block.error {
+	color: #cd1414;
+}
+.sp-cal-container {
+	position: absolute;
+}
+.sp-cal-row {
+	padding: 3px;
+	text-align: center;
+	display: block;
+	width: 250px;
+	border: 1px solid #bbbbbb;
+	box-shadow: 0px 0px 6px 0px #222222;
+}
+.sp-cal-el {
+	width: 13%;
+	padding: 0.25%;
+	margin: 0.5%;
+	display: inline-block;
+	font-size: 9pt;
+	cursor: pointer;
+}
+.sp-cal-el:hover {
+	background-color: #e0e0e0;
+}
+.sp-cal-el.header {
+	/*background-color: #6568f0;*/
+	background-color: #878787;
+	color: #ffffff;
+	cursor: default;
+}
+.sp-cal-el.today {
+	background-color: #888fe6;
+	color: #ffffff;
+}
+.sp-cal-el.prev, .sp-cal-el.next{
+	background-color: #eaeaea;
+	color: #999999;
+}
+.sp-cal-el.prev:hover, .sp-cal-el.next:hover {
+	background-color: #e0e0e0;
+}
+.sp-cal-button {
+	display: inline-block;
+	padding: 4px;
+	margin: 3px;
+	width: 45px;
+	font-size: 9.5pt;
+}
+.sp-cal-button.secondary {
+	width: 25px;
+	margin: 2px;
+}

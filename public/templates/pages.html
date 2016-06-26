@@ -1,0 +1,30 @@
+<sp-header search="search"></sp-header>
+<div class="row expanded">
+	<table>
+		<thead>
+			<tr>
+				<th></th>
+				<th>Title</th>
+				<th>Created On</th>
+				<th class="show-for-medium" >Last Updated</th>
+				<th>Notes</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="page in pages | filter: {notes: search}" >
+				<td>
+					<span ng-click="deleteNote(page._id)" class="fi-trash control"></span></td>
+				<td nowrap="nowrap"><a href="#/p/{{page.slug}}">{{page.title}}</a></td>
+				<td nowrap="nowrap">{{page.created | date:'MMMM dd, yyyy hh:mm a'}}</td>
+				<td class="show-for-medium" nowrap="nowrap">{{page.updated | date:'yyyy-MM-dd hh:mm a'}}</td>
+				<td width="99%" class="no-wrap"><a href="#/p/{{page.slug}}">{{page.notes | limitTo: 200}}</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="small-3 columns">
+		<a class="button fi-plus" href="#/new-note"> New Note</a>
+	</div>
+	<div class="small-3 columns">
+		<a class="button fi-clipboard" href="#/c"> Clipboard</a>
+	</div>
+</div>

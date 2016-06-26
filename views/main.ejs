@@ -1,0 +1,45 @@
+<html ng-app="scratchpad">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Scratchpad</title>
+	<link rel="stylesheet" href="css/foundation.css" />
+	<link rel="stylesheet" href="css/foundation-icons.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/scratchpad.css" />
+</head>
+<body>
+	<ng-view></ng-view>
+	
+	<!-- Angular libraries -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-animate.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-resource.min.js"></script>
+	<script src="main.js"></script>
+	<!-- shared JS-->
+	<%shared.forEach(function(s, idx) {%>
+	<script src="shared/<%=s%>"></script>
+	<%});%>
+	<!-- modules -->
+	<%modules.forEach(function(module, idx) {%>
+	<script src="modules/<%=module%>"></script>
+	<%});%>
+	<!-- templates -->
+	<%templates.forEach(function(template, idx) {%>
+	<script type="text/ng-template" id="<%=template.id%>">
+	<%-template.contents%>
+	</script>
+	<%});%>
+	
+	<!-- other js -->
+	<script src="js/jquery.js"></script>
+	<script src="js/what-input.js"></script>
+	<script src="js/foundation.min.js"></script>
+	<script src="js/moment.min.js"></script>
+	<script>
+	  $(document).foundation();
+	</script>
+</body>
+</html>

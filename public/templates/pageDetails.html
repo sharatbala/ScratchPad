@@ -1,0 +1,44 @@
+<sp-header page-title="{{pageTitle}}"></sp-header>
+<div ng-show="pageNotFound">
+	<div class="row">Hmm, this page does not seem to exist!?!</div>
+	<div class="row">Want to create a new one?</div>
+	<div class="row">
+		<div class="small-2 columns"><a class="success button"  href="#/new-note">Yes :-)</a></div>
+		<div class="small-4 columns">No! Take me back to <a class="button" href="#">All Notes</a></div>
+	</div>
+</div>
+<div class="row" ng-show="!pageNotFound">
+	<div class="large-12 columns" role="content">
+
+		<form name="pageForm">
+			<div ng-show="newPage">
+			<strong>Title</strong>
+			<input type="text" name="title" ng-model="page.title" ng-class="{ 'error-field' : pageForm.title.$invalid && submitted}" required >
+			<p ng-show="pageForm.title.$invalid  && submitted" class="help-block error">You need a title, they help define the URL when saved.</p>
+			</div>
+			<strong>Notes</strong>
+			<textarea ng-model="page.notes" name="notes" rows="10" cols="10" ng-class="{ 'error-field' : pageForm.notes.$invalid && submitted}" required>
+				{{ page.notes}}
+			</textarea>
+			<p ng-show="pageForm.notes.$invalid  && submitted" class="help-block error">Umm... notes???</p>
+			<div class="row">
+				<div class="small-2 columns">
+					<strong>Hidden:</strong>
+				</div>
+				<div class="small-7 columns">
+					<div class="switch">
+						<input class="switch-input" name="hidden" type="checkbox" ng-checked="page.hidden">
+						<label class="switch-paddle" ng-click="toggleHidden()">
+						</label>
+					</div>
+				</div>
+			</div>
+			<p ng-show="page.hidden && !pageForm.hidden.$pristine" class="help-block">
+				This note will not be visible/searchable on the main page. Make sure to bookmark the URL after you save.
+			</p>
+			<hr>
+			<a class="button" ng-click="doSave()" ng-disabled="pageForm.$invalid">Save</a>
+			<a href="/" class="button">All Notes</a>
+		</form>
+	</div>
+</div>
